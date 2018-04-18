@@ -22,27 +22,37 @@ export class Counter extends Component{
   constructor(props) {
     super(props);
     this.counter = web3.contract(CONTRACT_JSON.abi).at(CONTRACT_ADDRESS);
+
     this.state = {
-      count: 0,
-      status: ''
+      count: 0
     };
     this.onClickHandler = this.onClickHandler.bind(this);
   }
 
-  setStateAsync(state) {
-    return new Promise((resolve) => {
-      this.setState(state, resolve)
+  componentWillMount() {
+    this.filter = this.counter.EvtIncrement();
+    this.filter.new();
+    this.filter.watch((err, result) => {
+      if (err) {
+        console.error(err);
+      }
+      if (result[0]) {
+        console.log('update !!!');
+        this.getCount();
+      }
+    });
+    this.getCount();
+  }
+
+  getCount() {
+    this.counter.getCount().then(result => {
+      console.log(result[0].words[0]);
+      this.setState({count: result[0].words[0]})
     });
   }
 
-  async componentWillMount() {
-    try {
-      let count = await this.counter.getCount();
-      this.setStateAsync({count: count[0].words[0]});
-    } catch (err) {
-      console.log('>>', err);
-      this.setStateAsync({status: err});
-    }
+  componentWillUnmount() {
+    this.filter.uninstall();
   }
 
   onClickHandler (evt) {
