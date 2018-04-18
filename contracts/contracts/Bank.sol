@@ -1,4 +1,4 @@
-pragma solidity ^0.4.19;
+pragma solidity ^0.4.21;
 
 contract Bank {
     // The value of a missing mapping value is 0

@@ -1,4 +1,4 @@
-pragma solidity ^0.4.19;
+pragma solidity ^0.4.21;
 
 // TODO should able to stop/resume the compaign
 contract Crowdfunding {
