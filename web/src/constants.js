@@ -1,0 +1,16 @@
+/*
+Running migration: 2_deploy_simple_contracts.js
+  Deploying Trivial...
+  ... 0x13ebdc3d46fdb239f5408ff09da2c91963111214344111ac29604fedf1ee4c4a
+  Trivial: 0xfd60b3a0bc23005891f4f4cceffbcd680b78ad06
+  Deploying State...
+  ... 0x13942fbfdab0005f17256522144d711eaa96b8374e9aedc35daaad1a8f9590cf
+  State: 0xbcc9203a0b343891fdefb83b175d431f2a426fce
+  Deploying Counter...
+  ... 0x247a42aff3009e83b48d9dc5e231a888c53e72b3227ca36ee4c720b8b021072f
+  Counter: 0x45786e780590eca1521d4d1bfee5cc54154181a6
+Saving successful migration to network...
+  ... 0xe28341f676815cd78741d2013d2a2fb0d878d1714667b9642be16e847e213d41
+Saving artifacts...
+*/
+export const CONTRACT_ADDRESS = "0x45786e780590eca1521d4d1bfee5cc54154181a6";
