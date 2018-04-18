@@ -7,7 +7,7 @@ export function Content (props) {
   return(
     <div className="App-intro">
       <dl>
-        <dt><Link to="/counter/">Counter</Link></dt>
+        <dt><Link to="/counter">Counter</Link></dt>
         <dd>Count and increment</dd>
       </dl>
     </div>
