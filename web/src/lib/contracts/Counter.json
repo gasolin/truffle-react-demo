@@ -2,6 +2,20 @@
   "contractName": "Counter",
   "abi": [
     {
+      "constant": true,
+      "inputs": [],
+      "name": "count",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
       "inputs": [
         {
           "name": "_count",
@@ -11,6 +25,18 @@
       "payable": false,
       "stateMutability": "nonpayable",
       "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "who",
+          "type": "address"
+        }
+      ],
+      "name": "EvtIncrement",
+      "type": "event"
     },
     {
       "constant": false,
@@ -36,20 +62,20 @@
       "type": "function"
     }
   ],
-  "bytecode": "0x6060604052341561000f57600080fd5b60405160208061010e83398101604052808051906020019091905050806000819055505060cd806100416000396000f3006060604052600436106049576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063a87d942c14604e578063d09de08a146074575b600080fd5b3415605857600080fd5b605e6086565b6040518082815260200191505060405180910390f35b3415607e57600080fd5b6084608f565b005b60008054905090565b600160008082825401925050819055505600a165627a7a72305820654b35316e46acaab9c2e2c5aa3f10f25d63064a9c2ac106793bd38b1d4e30fc0029",
-  "deployedBytecode": "0x6060604052600436106049576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063a87d942c14604e578063d09de08a146074575b600080fd5b3415605857600080fd5b605e6086565b6040518082815260200191505060405180910390f35b3415607e57600080fd5b6084608f565b005b60008054905090565b600160008082825401925050819055505600a165627a7a72305820654b35316e46acaab9c2e2c5aa3f10f25d63064a9c2ac106793bd38b1d4e30fc0029",
-  "sourceMap": "26:263:0:-;;;69:72;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;128:6;120:5;:14;;;;69:72;26:263;;;;;;",
-  "deployedSourceMap": "26:263:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;208:79;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;147:55;;;;;;;;;;;;;;208:79;249:7;275:5;;268:12;;208:79;:::o;147:55::-;194:1;185:5;;:10;;;;;;;;;;;147:55::o",
-  "source": "pragma solidity ^0.4.19;\n\ncontract Counter {\n    uint256 count;\n\n    function Counter(uint256  _count) public {\n        count = _count;\n    }\n\n    function increment() public {\n        count += 1;\n    }\n\n    function getCount() public view returns (uint256) {\n        return count;\n    }\n}\n",
-  "sourcePath": "/home/gasolin/Documents/eth/blockdemo/contracts/contracts/Counter.sol",
+  "bytecode": "0x6060604052341561000f57600080fd5b6040516020806101b5833981016040528080519060200190919050508060008190555050610173806100426000396000f300606060405260043610610057576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806306661abd1461005c578063a87d942c14610085578063d09de08a146100ae575b600080fd5b341561006757600080fd5b61006f6100c3565b6040518082815260200191505060405180910390f35b341561009057600080fd5b6100986100c9565b6040518082815260200191505060405180910390f35b34156100b957600080fd5b6100c16100d2565b005b60005481565b60008054905090565b7fcdf7d75bde78f268b0579c0f991db381002c984fb5d151bb1d4b2837d1a8bd4933604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390a1600160008082825401925050819055505600a165627a7a723058208460087683aa2baa40ec9ab6e413827af01bc0acaca2d8492900b5c72f9268270029",
+  "deployedBytecode": "0x606060405260043610610057576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806306661abd1461005c578063a87d942c14610085578063d09de08a146100ae575b600080fd5b341561006757600080fd5b61006f6100c3565b6040518082815260200191505060405180910390f35b341561009057600080fd5b6100986100c9565b6040518082815260200191505060405180910390f35b34156100b957600080fd5b6100c16100d2565b005b60005481565b60008054905090565b7fcdf7d75bde78f268b0579c0f991db381002c984fb5d151bb1d4b2837d1a8bd4933604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390a1600160008082825401925050819055505600a165627a7a723058208460087683aa2baa40ec9ab6e413827af01bc0acaca2d8492900b5c72f9268270029",
+  "sourceMap": "26:667:0:-;;;388:72;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;447:6;439:5;:14;;;;388:72;26:667;;;;;;",
+  "deployedSourceMap": "26:667:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;152:20;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;612:79;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;466:111;;;;;;;;;;;;;;152:20;;;;:::o;612:79::-;653:7;679:5;;672:12;;612:79;:::o;466:111::-;509:24;522:10;509:24;;;;;;;;;;;;;;;;;;;;;;569:1;560:5;;:10;;;;;;;;;;;466:111::o",
+  "source": "pragma solidity ^0.4.21;\n\ncontract Counter {\n    // https://programtheblockchain.com/posts/2018/01/02/making-smart-contracts-with-public-variables/\n    uint256 public count;\n\n    // https://programtheblockchain.com/posts/2018/01/24/logging-and-watching-solidity-events/\n    // Event name with uppercase letters as convension\n    event EvtIncrement(address who);   // declaring event\n\n    function Counter(uint256  _count) public {\n        count = _count;\n    }\n\n    function increment() public {\n        emit EvtIncrement(msg.sender); // logging event\n        count += 1;\n    }\n\n    // equivalent to count()\n    function getCount() public view returns (uint256) {\n        return count;\n    }\n}\n",
+  "sourcePath": "/home/gasolin/Documents/eth/truffle-react-demo/contracts/contracts/Counter.sol",
   "ast": {
-    "absolutePath": "/home/gasolin/Documents/eth/blockdemo/contracts/contracts/Counter.sol",
+    "absolutePath": "/home/gasolin/Documents/eth/truffle-react-demo/contracts/contracts/Counter.sol",
     "exportedSymbols": {
       "Counter": [
-        30
+        39
       ]
     },
-    "id": 31,
+    "id": 40,
     "nodeType": "SourceUnit",
     "nodes": [
       {
@@ -58,7 +84,7 @@
           "solidity",
           "^",
           "0.4",
-          ".19"
+          ".21"
         ],
         "nodeType": "PragmaDirective",
         "src": "0:24:0"
@@ -69,9 +95,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 30,
+        "id": 39,
         "linearizedBaseContracts": [
-          30
+          39
         ],
         "name": "Counter",
         "nodeType": "ContractDefinition",
@@ -81,8 +107,8 @@
             "id": 3,
             "name": "count",
             "nodeType": "VariableDeclaration",
-            "scope": 30,
-            "src": "49:13:0",
+            "scope": 39,
+            "src": "152:20:0",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -93,37 +119,79 @@
               "id": 2,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
-              "src": "49:7:0",
+              "src": "152:7:0",
               "typeDescriptions": {
                 "typeIdentifier": "t_uint256",
                 "typeString": "uint256"
               }
             },
             "value": null,
-            "visibility": "internal"
+            "visibility": "public"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 7,
+            "name": "EvtIncrement",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 6,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 5,
+                  "indexed": false,
+                  "name": "who",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7,
+                  "src": "348:11:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 4,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "348:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "347:13:0"
+            },
+            "src": "329:32:0"
           },
           {
             "body": {
-              "id": 12,
+              "id": 16,
               "nodeType": "Block",
-              "src": "110:31:0",
+              "src": "429:31:0",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 10,
+                    "id": 14,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 8,
+                      "id": 12,
                       "name": "count",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 3,
-                      "src": "120:5:0",
+                      "src": "439:5:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -133,31 +201,31 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 9,
+                      "id": 13,
                       "name": "_count",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 5,
-                      "src": "128:6:0",
+                      "referencedDeclaration": 9,
+                      "src": "447:6:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "src": "120:14:0",
+                    "src": "439:14:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "id": 11,
+                  "id": 15,
                   "nodeType": "ExpressionStatement",
-                  "src": "120:14:0"
+                  "src": "439:14:0"
                 }
               ]
             },
             "documentation": null,
-            "id": 13,
+            "id": 17,
             "implemented": true,
             "isConstructor": true,
             "isDeclaredConst": false,
@@ -165,16 +233,16 @@
             "name": "Counter",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6,
+              "id": 10,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 5,
+                  "id": 9,
                   "name": "_count",
                   "nodeType": "VariableDeclaration",
-                  "scope": 13,
-                  "src": "86:15:0",
+                  "scope": 17,
+                  "src": "405:15:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -182,10 +250,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 4,
+                    "id": 8,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "86:7:0",
+                    "src": "405:7:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -195,43 +263,113 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "85:17:0"
+              "src": "404:17:0"
             },
             "payable": false,
             "returnParameters": {
-              "id": 7,
+              "id": 11,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "110:0:0"
+              "src": "429:0:0"
             },
-            "scope": 30,
-            "src": "69:72:0",
+            "scope": 39,
+            "src": "388:72:0",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 20,
+              "id": 29,
               "nodeType": "Block",
-              "src": "175:27:0",
+              "src": "494:83:0",
               "statements": [
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 21,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 52,
+                          "src": "522:3:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
+                        },
+                        "id": 22,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "sender",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "522:10:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "id": 20,
+                      "name": "EvtIncrement",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 7,
+                      "src": "509:12:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_address_$returns$__$",
+                        "typeString": "function (address)"
+                      }
+                    },
+                    "id": 23,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "509:24:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 24,
+                  "nodeType": "EmitStatement",
+                  "src": "504:29:0"
+                },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 18,
+                    "id": 27,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 16,
+                      "id": 25,
                       "name": "count",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 3,
-                      "src": "185:5:0",
+                      "src": "560:5:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -242,14 +380,14 @@
                     "rightHandSide": {
                       "argumentTypes": null,
                       "hexValue": "31",
-                      "id": 17,
+                      "id": 26,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
                       "kind": "number",
                       "lValueRequested": false,
                       "nodeType": "Literal",
-                      "src": "194:1:0",
+                      "src": "569:1:0",
                       "subdenomination": null,
                       "typeDescriptions": {
                         "typeIdentifier": "t_rational_1_by_1",
@@ -257,20 +395,20 @@
                       },
                       "value": "1"
                     },
-                    "src": "185:10:0",
+                    "src": "560:10:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "id": 19,
+                  "id": 28,
                   "nodeType": "ExpressionStatement",
-                  "src": "185:10:0"
+                  "src": "560:10:0"
                 }
               ]
             },
             "documentation": null,
-            "id": 21,
+            "id": 30,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -278,53 +416,53 @@
             "name": "increment",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 14,
+              "id": 18,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "165:2:0"
+              "src": "484:2:0"
             },
             "payable": false,
             "returnParameters": {
-              "id": 15,
+              "id": 19,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "175:0:0"
+              "src": "494:0:0"
             },
-            "scope": 30,
-            "src": "147:55:0",
+            "scope": 39,
+            "src": "466:111:0",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 28,
+              "id": 37,
               "nodeType": "Block",
-              "src": "258:29:0",
+              "src": "662:29:0",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 26,
+                    "id": 35,
                     "name": "count",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
                     "referencedDeclaration": 3,
-                    "src": "275:5:0",
+                    "src": "679:5:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "functionReturnParameters": 25,
-                  "id": 27,
+                  "functionReturnParameters": 34,
+                  "id": 36,
                   "nodeType": "Return",
-                  "src": "268:12:0"
+                  "src": "672:12:0"
                 }
               ]
             },
             "documentation": null,
-            "id": 29,
+            "id": 38,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -332,23 +470,23 @@
             "name": "getCount",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 22,
+              "id": 31,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "225:2:0"
+              "src": "629:2:0"
             },
             "payable": false,
             "returnParameters": {
-              "id": 25,
+              "id": 34,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 24,
+                  "id": 33,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 29,
-                  "src": "249:7:0",
+                  "scope": 38,
+                  "src": "653:7:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -356,10 +494,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 23,
+                    "id": 32,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "249:7:0",
+                    "src": "653:7:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -369,29 +507,29 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "248:9:0"
+              "src": "652:9:0"
             },
-            "scope": 30,
-            "src": "208:79:0",
+            "scope": 39,
+            "src": "612:79:0",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 31,
-        "src": "26:263:0"
+        "scope": 40,
+        "src": "26:667:0"
       }
     ],
-    "src": "0:290:0"
+    "src": "0:694:0"
   },
   "legacyAST": {
-    "absolutePath": "/home/gasolin/Documents/eth/blockdemo/contracts/contracts/Counter.sol",
+    "absolutePath": "/home/gasolin/Documents/eth/truffle-react-demo/contracts/contracts/Counter.sol",
     "exportedSymbols": {
       "Counter": [
-        30
+        39
       ]
     },
-    "id": 31,
+    "id": 40,
     "nodeType": "SourceUnit",
     "nodes": [
       {
@@ -400,7 +538,7 @@
           "solidity",
           "^",
           "0.4",
-          ".19"
+          ".21"
         ],
         "nodeType": "PragmaDirective",
         "src": "0:24:0"
@@ -411,9 +549,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 30,
+        "id": 39,
         "linearizedBaseContracts": [
-          30
+          39
         ],
         "name": "Counter",
         "nodeType": "ContractDefinition",
@@ -423,8 +561,8 @@
             "id": 3,
             "name": "count",
             "nodeType": "VariableDeclaration",
-            "scope": 30,
-            "src": "49:13:0",
+            "scope": 39,
+            "src": "152:20:0",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -435,37 +573,79 @@
               "id": 2,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
-              "src": "49:7:0",
+              "src": "152:7:0",
               "typeDescriptions": {
                 "typeIdentifier": "t_uint256",
                 "typeString": "uint256"
               }
             },
             "value": null,
-            "visibility": "internal"
+            "visibility": "public"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 7,
+            "name": "EvtIncrement",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 6,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 5,
+                  "indexed": false,
+                  "name": "who",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7,
+                  "src": "348:11:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 4,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "348:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "347:13:0"
+            },
+            "src": "329:32:0"
           },
           {
             "body": {
-              "id": 12,
+              "id": 16,
               "nodeType": "Block",
-              "src": "110:31:0",
+              "src": "429:31:0",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 10,
+                    "id": 14,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 8,
+                      "id": 12,
                       "name": "count",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 3,
-                      "src": "120:5:0",
+                      "src": "439:5:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -475,31 +655,31 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 9,
+                      "id": 13,
                       "name": "_count",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 5,
-                      "src": "128:6:0",
+                      "referencedDeclaration": 9,
+                      "src": "447:6:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "src": "120:14:0",
+                    "src": "439:14:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "id": 11,
+                  "id": 15,
                   "nodeType": "ExpressionStatement",
-                  "src": "120:14:0"
+                  "src": "439:14:0"
                 }
               ]
             },
             "documentation": null,
-            "id": 13,
+            "id": 17,
             "implemented": true,
             "isConstructor": true,
             "isDeclaredConst": false,
@@ -507,16 +687,16 @@
             "name": "Counter",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6,
+              "id": 10,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 5,
+                  "id": 9,
                   "name": "_count",
                   "nodeType": "VariableDeclaration",
-                  "scope": 13,
-                  "src": "86:15:0",
+                  "scope": 17,
+                  "src": "405:15:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -524,10 +704,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 4,
+                    "id": 8,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "86:7:0",
+                    "src": "405:7:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -537,43 +717,113 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "85:17:0"
+              "src": "404:17:0"
             },
             "payable": false,
             "returnParameters": {
-              "id": 7,
+              "id": 11,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "110:0:0"
+              "src": "429:0:0"
             },
-            "scope": 30,
-            "src": "69:72:0",
+            "scope": 39,
+            "src": "388:72:0",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 20,
+              "id": 29,
               "nodeType": "Block",
-              "src": "175:27:0",
+              "src": "494:83:0",
               "statements": [
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 21,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 52,
+                          "src": "522:3:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
+                        },
+                        "id": 22,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "sender",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "522:10:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "id": 20,
+                      "name": "EvtIncrement",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 7,
+                      "src": "509:12:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_address_$returns$__$",
+                        "typeString": "function (address)"
+                      }
+                    },
+                    "id": 23,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "509:24:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 24,
+                  "nodeType": "EmitStatement",
+                  "src": "504:29:0"
+                },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 18,
+                    "id": 27,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 16,
+                      "id": 25,
                       "name": "count",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 3,
-                      "src": "185:5:0",
+                      "src": "560:5:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -584,14 +834,14 @@
                     "rightHandSide": {
                       "argumentTypes": null,
                       "hexValue": "31",
-                      "id": 17,
+                      "id": 26,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
                       "kind": "number",
                       "lValueRequested": false,
                       "nodeType": "Literal",
-                      "src": "194:1:0",
+                      "src": "569:1:0",
                       "subdenomination": null,
                       "typeDescriptions": {
                         "typeIdentifier": "t_rational_1_by_1",
@@ -599,20 +849,20 @@
                       },
                       "value": "1"
                     },
-                    "src": "185:10:0",
+                    "src": "560:10:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "id": 19,
+                  "id": 28,
                   "nodeType": "ExpressionStatement",
-                  "src": "185:10:0"
+                  "src": "560:10:0"
                 }
               ]
             },
             "documentation": null,
-            "id": 21,
+            "id": 30,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -620,53 +870,53 @@
             "name": "increment",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 14,
+              "id": 18,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "165:2:0"
+              "src": "484:2:0"
             },
             "payable": false,
             "returnParameters": {
-              "id": 15,
+              "id": 19,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "175:0:0"
+              "src": "494:0:0"
             },
-            "scope": 30,
-            "src": "147:55:0",
+            "scope": 39,
+            "src": "466:111:0",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 28,
+              "id": 37,
               "nodeType": "Block",
-              "src": "258:29:0",
+              "src": "662:29:0",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 26,
+                    "id": 35,
                     "name": "count",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
                     "referencedDeclaration": 3,
-                    "src": "275:5:0",
+                    "src": "679:5:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "functionReturnParameters": 25,
-                  "id": 27,
+                  "functionReturnParameters": 34,
+                  "id": 36,
                   "nodeType": "Return",
-                  "src": "268:12:0"
+                  "src": "672:12:0"
                 }
               ]
             },
             "documentation": null,
-            "id": 29,
+            "id": 38,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -674,23 +924,23 @@
             "name": "getCount",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 22,
+              "id": 31,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "225:2:0"
+              "src": "629:2:0"
             },
             "payable": false,
             "returnParameters": {
-              "id": 25,
+              "id": 34,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 24,
+                  "id": 33,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 29,
-                  "src": "249:7:0",
+                  "scope": 38,
+                  "src": "653:7:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -698,10 +948,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 23,
+                    "id": 32,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "249:7:0",
+                    "src": "653:7:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -711,26 +961,32 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "248:9:0"
+              "src": "652:9:0"
             },
-            "scope": 30,
-            "src": "208:79:0",
+            "scope": 39,
+            "src": "612:79:0",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 31,
-        "src": "26:263:0"
+        "scope": 40,
+        "src": "26:667:0"
       }
     ],
-    "src": "0:290:0"
+    "src": "0:694:0"
   },
   "compiler": {
     "name": "solc",
     "version": "0.4.21+commit.dfe3193c.Emscripten.clang"
   },
   "networks": {
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0x4edd7a74f7f96c586f0e516af78e4557d26cc434",
+      "transactionHash": "0x247a42aff3009e83b48d9dc5e231a888c53e72b3227ca36ee4c720b8b021072f"
+    },
     "1523760010122": {
       "events": {},
       "links": {},
@@ -742,8 +998,44 @@
       "links": {},
       "address": "0x96bd439b7dddb301e8a8f70daa82e823386d6303",
       "transactionHash": "0x6ba89bade04f8249bc32ee0a255915c92cce4a485e6d8bd8583f3781fb00f691"
+    },
+    "1523760746417": {
+      "events": {},
+      "links": {},
+      "address": "0xb960649567155a8c6a5588b9bf8720390d394fd3",
+      "transactionHash": "0x17c4a6cdbc505f724b92c1952894d166c9422123c95f3891e765f13a6d2e8be3"
+    },
+    "1523856815065": {
+      "events": {},
+      "links": {},
+      "address": "0x764219dd0e881afc94261bf0cfb62b7a4c499d96",
+      "transactionHash": "0x247a42aff3009e83b48d9dc5e231a888c53e72b3227ca36ee4c720b8b021072f"
+    },
+    "1523894406814": {
+      "events": {},
+      "links": {},
+      "address": "0x91374e3db5be2748ffb50f66c769d90a2d549a7a",
+      "transactionHash": "0x7bdd4de47358352875851158f38cdfa7fab1cdbc64a098f51d79600e8a52c216"
+    },
+    "1524019174279": {
+      "events": {},
+      "links": {},
+      "address": "0x33a45e3fffdee41899f0501e2fc4e8a6a48f0935",
+      "transactionHash": "0x71880b37679e02887116776cf0c9fb7ea20cd2e82540d77920bd8f973a8283d5"
+    },
+    "1524019407610": {
+      "events": {},
+      "links": {},
+      "address": "0xd7cc56a9452305c4b23e693f58f46982ba4ee432",
+      "transactionHash": "0x71880b37679e02887116776cf0c9fb7ea20cd2e82540d77920bd8f973a8283d5"
+    },
+    "1524019580693": {
+      "events": {},
+      "links": {},
+      "address": "0x63d3976b2af6af1a6002f260a96b9a4c02d398a3",
+      "transactionHash": "0x71880b37679e02887116776cf0c9fb7ea20cd2e82540d77920bd8f973a8283d5"
     }
   },
   "schemaVersion": "2.0.0",
-  "updatedAt": "2018-04-15T02:49:13.151Z"
+  "updatedAt": "2018-04-18T02:46:40.201Z"
 }

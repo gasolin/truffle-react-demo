@@ -16,32 +16,32 @@
       "type": "function"
     }
   ],
-  "bytecode": "0x60606040523415600e57600080fd5b609f8061001c6000396000f300606060405260043610603f576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806320965255146044575b600080fd5b3415604e57600080fd5b6054606a565b6040518082815260200191505060405180910390f35b6000604d9050905600a165627a7a72305820d4a41ea90f8dd3e2e30344c8a6226e6ae06803317144e29ff072a7658c14fbf10029",
-  "deployedBytecode": "0x606060405260043610603f576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806320965255146044575b600080fd5b3415604e57600080fd5b6054606a565b6040518082815260200191505060405180910390f35b6000604d9050905600a165627a7a72305820d4a41ea90f8dd3e2e30344c8a6226e6ae06803317144e29ff072a7658c14fbf10029",
-  "sourceMap": "26:101:1:-;;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "26:101:1:-;;;;;;;;;;;;;;;;;;;;;;;;49:76;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;90:7;116:2;109:9;;49:76;:::o",
-  "source": "pragma solidity ^0.4.19;\n\ncontract Trivial {\n    function getValue() public pure returns (uint256) {\n        return 77;\n    }\n}\n",
-  "sourcePath": "/home/gasolin/Documents/eth/blockdemo/contracts/contracts/Trivial.sol",
+  "bytecode": "0x60606040523415600e57600080fd5b609f8061001c6000396000f300606060405260043610603f576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806320965255146044575b600080fd5b3415604e57600080fd5b6054606a565b6040518082815260200191505060405180910390f35b6000604d9050905600a165627a7a72305820683613eb2f17cc49a35149551b68c5bc5bf5b7edaa0b683055b8d3197711ab2c0029",
+  "deployedBytecode": "0x606060405260043610603f576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806320965255146044575b600080fd5b3415604e57600080fd5b6054606a565b6040518082815260200191505060405180910390f35b6000604d9050905600a165627a7a72305820683613eb2f17cc49a35149551b68c5bc5bf5b7edaa0b683055b8d3197711ab2c0029",
+  "sourceMap": "26:101:9:-;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "26:101:9:-;;;;;;;;;;;;;;;;;;;;;;;;49:76;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;90:7;116:2;109:9;;49:76;:::o",
+  "source": "pragma solidity ^0.4.21;\n\ncontract Trivial {\n    function getValue() public pure returns (uint256) {\n        return 77;\n    }\n}\n",
+  "sourcePath": "/home/gasolin/Documents/eth/truffle-react-demo/contracts/contracts/Trivial.sol",
   "ast": {
-    "absolutePath": "/home/gasolin/Documents/eth/blockdemo/contracts/contracts/Trivial.sol",
+    "absolutePath": "/home/gasolin/Documents/eth/truffle-react-demo/contracts/contracts/Trivial.sol",
     "exportedSymbols": {
       "Trivial": [
-        33
+        540
       ]
     },
-    "id": 34,
+    "id": 541,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 24,
+        "id": 531,
         "literals": [
           "solidity",
           "^",
           "0.4",
-          ".19"
+          ".21"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:24:1"
+        "src": "0:24:9"
       },
       {
         "baseContracts": [],
@@ -49,31 +49,31 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 33,
+        "id": 540,
         "linearizedBaseContracts": [
-          33
+          540
         ],
         "name": "Trivial",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": {
-              "id": 31,
+              "id": 538,
               "nodeType": "Block",
-              "src": "99:26:1",
+              "src": "99:26:9",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
                     "hexValue": "3737",
-                    "id": 29,
+                    "id": 536,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": true,
                     "kind": "number",
                     "lValueRequested": false,
                     "nodeType": "Literal",
-                    "src": "116:2:1",
+                    "src": "116:2:9",
                     "subdenomination": null,
                     "typeDescriptions": {
                       "typeIdentifier": "t_rational_77_by_1",
@@ -81,15 +81,15 @@
                     },
                     "value": "77"
                   },
-                  "functionReturnParameters": 28,
-                  "id": 30,
+                  "functionReturnParameters": 535,
+                  "id": 537,
                   "nodeType": "Return",
-                  "src": "109:9:1"
+                  "src": "109:9:9"
                 }
               ]
             },
             "documentation": null,
-            "id": 32,
+            "id": 539,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -97,23 +97,23 @@
             "name": "getValue",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 25,
+              "id": 532,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "66:2:1"
+              "src": "66:2:9"
             },
             "payable": false,
             "returnParameters": {
-              "id": 28,
+              "id": 535,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 27,
+                  "id": 534,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 32,
-                  "src": "90:7:1",
+                  "scope": 539,
+                  "src": "90:7:9",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -121,10 +121,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 26,
+                    "id": 533,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "90:7:1",
+                    "src": "90:7:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -134,41 +134,41 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "89:9:1"
+              "src": "89:9:9"
             },
-            "scope": 33,
-            "src": "49:76:1",
+            "scope": 540,
+            "src": "49:76:9",
             "stateMutability": "pure",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 34,
-        "src": "26:101:1"
+        "scope": 541,
+        "src": "26:101:9"
       }
     ],
-    "src": "0:128:1"
+    "src": "0:128:9"
   },
   "legacyAST": {
-    "absolutePath": "/home/gasolin/Documents/eth/blockdemo/contracts/contracts/Trivial.sol",
+    "absolutePath": "/home/gasolin/Documents/eth/truffle-react-demo/contracts/contracts/Trivial.sol",
     "exportedSymbols": {
       "Trivial": [
-        33
+        540
       ]
     },
-    "id": 34,
+    "id": 541,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 24,
+        "id": 531,
         "literals": [
           "solidity",
           "^",
           "0.4",
-          ".19"
+          ".21"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:24:1"
+        "src": "0:24:9"
       },
       {
         "baseContracts": [],
@@ -176,31 +176,31 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 33,
+        "id": 540,
         "linearizedBaseContracts": [
-          33
+          540
         ],
         "name": "Trivial",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": {
-              "id": 31,
+              "id": 538,
               "nodeType": "Block",
-              "src": "99:26:1",
+              "src": "99:26:9",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
                     "hexValue": "3737",
-                    "id": 29,
+                    "id": 536,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": true,
                     "kind": "number",
                     "lValueRequested": false,
                     "nodeType": "Literal",
-                    "src": "116:2:1",
+                    "src": "116:2:9",
                     "subdenomination": null,
                     "typeDescriptions": {
                       "typeIdentifier": "t_rational_77_by_1",
@@ -208,15 +208,15 @@
                     },
                     "value": "77"
                   },
-                  "functionReturnParameters": 28,
-                  "id": 30,
+                  "functionReturnParameters": 535,
+                  "id": 537,
                   "nodeType": "Return",
-                  "src": "109:9:1"
+                  "src": "109:9:9"
                 }
               ]
             },
             "documentation": null,
-            "id": 32,
+            "id": 539,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -224,23 +224,23 @@
             "name": "getValue",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 25,
+              "id": 532,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "66:2:1"
+              "src": "66:2:9"
             },
             "payable": false,
             "returnParameters": {
-              "id": 28,
+              "id": 535,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 27,
+                  "id": 534,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 32,
-                  "src": "90:7:1",
+                  "scope": 539,
+                  "src": "90:7:9",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -248,10 +248,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 26,
+                    "id": 533,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "90:7:1",
+                    "src": "90:7:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -261,26 +261,69 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "89:9:1"
+              "src": "89:9:9"
             },
-            "scope": 33,
-            "src": "49:76:1",
+            "scope": 540,
+            "src": "49:76:9",
             "stateMutability": "pure",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 34,
-        "src": "26:101:1"
+        "scope": 541,
+        "src": "26:101:9"
       }
     ],
-    "src": "0:128:1"
+    "src": "0:128:9"
   },
   "compiler": {
     "name": "solc",
     "version": "0.4.21+commit.dfe3193c.Emscripten.clang"
   },
-  "networks": {},
+  "networks": {
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0xac8140f0eb0ac27fe453a676796d78dd131026b5",
+      "transactionHash": "0x13ebdc3d46fdb239f5408ff09da2c91963111214344111ac29604fedf1ee4c4a"
+    },
+    "1523760746417": {
+      "events": {},
+      "links": {},
+      "address": "0xabcdffbbae05f39407b0258fdc0e039adf5df946",
+      "transactionHash": "0x88cac74129a4f2c7fbf4dcb0323aafc97d2e8068e05554a05ce80f8aa96d64d4"
+    },
+    "1523856815065": {
+      "events": {},
+      "links": {},
+      "address": "0x3a45da20bdc68f05523898f5458008e1e7ab6d07",
+      "transactionHash": "0x13ebdc3d46fdb239f5408ff09da2c91963111214344111ac29604fedf1ee4c4a"
+    },
+    "1523894406814": {
+      "events": {},
+      "links": {},
+      "address": "0x0b94f53b5aefcb9f4ada91b7abdabe57138ff696",
+      "transactionHash": "0xc9a0768a6e5b7c88275da7ea0f570f456887dfb8cbceac7f94cf9b9620e4a7ee"
+    },
+    "1524019174279": {
+      "events": {},
+      "links": {},
+      "address": "0xa77b41dbcebfb8eacbf4f733fbc6efb798276eac",
+      "transactionHash": "0x7547cf832ae2b9b0f2ca2dc36c0ef4c7b03e2645be8f3998648d43d4d2b71448"
+    },
+    "1524019407610": {
+      "events": {},
+      "links": {},
+      "address": "0x5959405328e93af8657ee9576f17510158c38230",
+      "transactionHash": "0x7547cf832ae2b9b0f2ca2dc36c0ef4c7b03e2645be8f3998648d43d4d2b71448"
+    },
+    "1524019580693": {
+      "events": {},
+      "links": {},
+      "address": "0x21e4624c5a0b3fda81d0833d412dded2bb3a7a7c",
+      "transactionHash": "0x7547cf832ae2b9b0f2ca2dc36c0ef4c7b03e2645be8f3998648d43d4d2b71448"
+    }
+  },
   "schemaVersion": "2.0.0",
-  "updatedAt": "2018-04-15T02:49:13.148Z"
+  "updatedAt": "2018-04-18T02:46:40.194Z"
 }

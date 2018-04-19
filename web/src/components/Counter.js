@@ -30,9 +30,9 @@ export class Counter extends Component{
   }
 
   componentWillMount() {
-    this.filter = this.counter.EvtIncrement();
-    this.filter.new();
-    this.filter.watch((err, result) => {
+    this.event = this.counter.EvtIncrement();
+    this.event.new();
+    this.event.watch((err, result) => {
       if (err) {
         console.error(err);
       }
@@ -52,7 +52,7 @@ export class Counter extends Component{
   }
 
   componentWillUnmount() {
-    this.filter.uninstall();
+    this.event.uninstall();
   }
 
   onClickHandler (evt) {

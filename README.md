@@ -1,6 +1,11 @@
 # Truffle-React-demo
 
-The `truffle-react-redux` provide the template(box) for your next dapp with React (and Redux, Route, Internationalization). The template separate the concern of `contracts` and `web` frontend as sub projects and include glue scripts to bridge the both sides.
+`Truffle-React-demo` follows [Program the Blockchain](https://programtheblockchain.com/) and make correspondent DApp with React.
+
+Currently available DApp:
+* Counter
+
+The `truffle-react-redux` template(box) for your next dapp with React (and Redux, Route, Internationalization). The template separate the concern of `contracts` and `web` frontend as sub projects and include glue scripts to bridge the both sides.
 
 ## Installation
 

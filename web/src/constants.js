@@ -1,16 +1,16 @@
 /*
 Running migration: 2_deploy_simple_contracts.js
   Deploying Trivial...
-  ... 0x13ebdc3d46fdb239f5408ff09da2c91963111214344111ac29604fedf1ee4c4a
-  Trivial: 0xfd60b3a0bc23005891f4f4cceffbcd680b78ad06
+  ... 0x7547cf832ae2b9b0f2ca2dc36c0ef4c7b03e2645be8f3998648d43d4d2b71448
+  Trivial: 0x21e4624c5a0b3fda81d0833d412dded2bb3a7a7c
   Deploying State...
-  ... 0x13942fbfdab0005f17256522144d711eaa96b8374e9aedc35daaad1a8f9590cf
-  State: 0xbcc9203a0b343891fdefb83b175d431f2a426fce
+  ... 0x99222d7d47fa90c5e3987487db29c27b9229cf94947248e1bc9a93d9b35b1ff0
+  State: 0x19fb2a9204f74faf031a63309b0389c42fc5276b
   Deploying Counter...
-  ... 0x247a42aff3009e83b48d9dc5e231a888c53e72b3227ca36ee4c720b8b021072f
-  Counter: 0x45786e780590eca1521d4d1bfee5cc54154181a6
+  ... 0x71880b37679e02887116776cf0c9fb7ea20cd2e82540d77920bd8f973a8283d5
+  Counter: 0x63d3976b2af6af1a6002f260a96b9a4c02d398a3
 Saving successful migration to network...
-  ... 0xe28341f676815cd78741d2013d2a2fb0d878d1714667b9642be16e847e213d41
+  ... 0x8de123f7ff0e259e56ceb04011f67b862296a2fa59c9152af81798ecf36353f7
 Saving artifacts...
 */
-export const CONTRACT_ADDRESS = "0x45786e780590eca1521d4d1bfee5cc54154181a6";
+export const CONTRACT_ADDRESS = "0x63d3976b2af6af1a6002f260a96b9a4c02d398a3";
