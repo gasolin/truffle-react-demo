@@ -5,7 +5,7 @@
 Currently available DApp:
 * [Counter](https://github.com/gasolin/truffle-react-demo/blob/master/web/src/components/Counter.js)
 
-The `truffle-react-redux` template(box) for your next dapp with React (and Redux, Route, Internationalization). The template separate the concern of `contracts` and `web` frontend as sub projects and include glue scripts to bridge the both sides.
+The project structure is based on [truffle-react-redux](https://github.com/gasolin/truffle-react-redux) template. The template separate the concern of `contracts` and `web` frontend as sub projects and include glue scripts to bridge the both sides.
 
 ## Installation
 

@@ -1,6 +1,6 @@
 pragma solidity ^0.4.21;
 
-contract Multicounter {
+contract MultiCounter {
     mapping(uint256 => uint256) public counts;
 
     // indexed parameter can be used to efficiently filter events
