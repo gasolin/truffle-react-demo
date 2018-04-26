@@ -5,11 +5,10 @@ import Eth from 'ethjs';
 import 'bootstrap/dist/css/bootstrap.css'
 import './index.css';
 import App from './App';
-import { configureStore } from './configureStore';
+import { store } from './store';
 import { updateWeb3Status } from './actions';
 // import registerServiceWorker from './registerServiceWorker';
 
-const store = configureStore()
 let web3 = undefined;
 
 ReactDOM.render(
