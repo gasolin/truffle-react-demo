@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Alert } from 'reactstrap';
-import { clearStatus } from '../actions';
+import { clearStatus } from '../state/status/actions';
 
 class Status extends React.Component {
   constructor(props) {

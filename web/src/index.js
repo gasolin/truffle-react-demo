@@ -5,8 +5,8 @@ import Eth from 'ethjs';
 import 'bootstrap/dist/css/bootstrap.css'
 import './index.css';
 import App from './App';
-import { store } from './store';
-import { updateWeb3Status } from './actions';
+import { store } from './state/store';
+import { updateWeb3Status } from './state/web3/actions';
 // import registerServiceWorker from './registerServiceWorker';
 
 let web3 = undefined;

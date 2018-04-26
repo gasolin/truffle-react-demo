@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import { CONTRACT_ADDRESS } from '../constants';
 import CONTRACT_JSON from '../lib/contracts/Counter.json';
-import { updateStatus } from '../actions';
+import { updateStatus } from '../state/status/actions';
 import {
   accounts,
   waitForReceipt,

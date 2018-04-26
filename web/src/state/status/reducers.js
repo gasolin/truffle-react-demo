@@ -1,7 +1,7 @@
 import {
   CLEAR_STATUS,
   UPDATE_STATUS
-} from '../actions/actionTypes';
+} from './types';
 
 const initialState = {
   style: '',
